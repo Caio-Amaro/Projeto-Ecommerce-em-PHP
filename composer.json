@@ -1,0 +1,19 @@
+{
+    "name": "kaioingo/ecommerce",
+    "authors": [
+        {
+            "name": "KaioIngo DesenvolvimentoWEB",
+            "email": "suporte@kaioingo.com.br"
+        }
+    ],
+    "require": {
+    	"phpmailer/phpmailer":"5.2.*",
+    	"slim/slim":"2.*",
+    	"rain/raintpl":"3.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "vendor\\kaioingo\\php-classes\\src"
+        }
+    }
+}

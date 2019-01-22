@@ -2,7 +2,7 @@
 
 require_once("vendor/autoload.php");
 
-require_once("hcodebr/php-classes/src/DB/sql.php");
+
 
 $app = new \Slim\Slim();
 
@@ -10,11 +10,11 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	$sql = new DB\Sql();
+	$sql = new Hcode\DB\Sql();
 
-	$results = $sql->select("SELECT * FROM tb_users");
+	$results = $sql->select("SELECT * FROM tb_products");
 
-	echo json_encode($results);
+echo json_encode($results);
 
 
 });

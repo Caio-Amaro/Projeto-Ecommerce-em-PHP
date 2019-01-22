@@ -1,0 +1,19 @@
+1º Etapa - Modelagem do Banco de Dados
+
+       
+    - Montagem do diagrama das tabelas do banco de dados
+    - Criação das relaçoes das tabelas do banco de dados
+    - Criação das tabelas do banco de dados
+
+
+2º Etapa - Configuração do Desenvolvimento
+
+    - Composer // Configurar o composer.json com as dependências que serão utilizadas
+    - Host
+    - Apache
+    
+3º Etapa - Conexão com bando de dados
+
+    - Criar a classe de Conexão
+    - CRiar os métodos de acesso (CRUD)
+        ** Primeiro método de "query" de conexão // Query bruta

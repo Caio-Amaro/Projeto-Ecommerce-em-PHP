@@ -14,6 +14,23 @@
     
 3º Etapa - Conexão com bando de dados
 
+    - Criar e instalar no vendor a classe de conexão com banco de dados
     - Criar a classe de Conexão
     - CRiar os métodos de acesso (CRUD)
         ** Primeiro método de "query" de conexão // Query bruta
+    - Editar autoload para que reconheça a classe instalada do banco de dados
+
+4º Etapa - Criar a classe Page (Página principal RTL)
+
+    * Rain Tpl é responsável em conectar as páginas de layout com os comandos PHP (**"merge" no cache).
+
+    - Criar arquivo "page.php" responsável por carrear Template.
+    - Configurar Rain Tpl
+    - Criar funções no arquivo page.php de configuração do Rain Tpl.
+
+        *** Método mágico construct basicamente chama o "header", o body é um método construído especialmente (setTpl) 
+        e o Destruct é um método para o "footer".
+
+5º Etapa - Configurar o Template do Site
+
+    -

@@ -33,4 +33,12 @@
 
 5º Etapa - Configurar o Template do Site
 
-    -
+    - Baixar o template que será utilizado e separar header ( cabeçalho que vai aparecer em todas as páginas)
+    - baixar o template que será utilizado e separar Footer (rodapé que será utilizado em todas as páginas)
+    - Baixar e configurar o index.
+    - No diretório "views" inserir o html do header, footer e index.
+    - Reconfigurar os caminhos para as pastas css, javascript especialmente
+
+6º Etapa - Criar a Classe Page ADMIN
+
+    - 

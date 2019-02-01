@@ -11,6 +11,8 @@ class Page {
     private $options = [];
     private $defaults = [
 
+        "header" => true,
+        "footer" => true,
         "data" => []
 
     ];
@@ -33,7 +35,7 @@ class Page {
 
     $this->setData($this->options["data"]);
 
-    $this->Tpl->draw("header");
+    if ($this->options ["header"] === true) $this->Tpl->draw("header");
 
     }
 
@@ -56,7 +58,7 @@ class Page {
     public function __destruct() 
     {
 
-        $this->Tpl->draw("footer");
+        if ($this->options["footer"]===true) $this->Tpl->draw("footer");
 
     }
 

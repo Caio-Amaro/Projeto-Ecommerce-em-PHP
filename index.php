@@ -119,7 +119,7 @@ $app->get("/admin/users/:iduser", function($iduser){
 	$page = new PageAdmin();
 	
 	$page->setTpl("users-update", array(
-		"user"=>getValue()
+		"user"=>$user->getValues()
 	));
 
 });
@@ -158,11 +158,42 @@ $app->post("/admin/users/:iduser", function($iduser){
 	header("Location: /admin");
 
 	exit;
+});
 
+$app->get("/admin/forgot", function (){
+
+		$page = new PageAdmin([
+
+		"header" => false,
+		"footer" => false
+		]);
 	
+		$page->setTpl("forgot");
 
 });
 
+$app->post("/admin/forgot", function(){
+
+	
+	$user = User::getForgot($_POST["email"]);
+
+	header("Location: /admin/forgot/sent");
+
+	exit;
+
+});
+
+$app->get("/admin/forgot/sent", function(){
+
+	$page = new PageAdmin([
+
+		"header" => false,
+		"footer" => false
+		]);
+	
+		$page->setTpl("forgot-sent");
+
+});
 
 
 

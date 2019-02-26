@@ -188,12 +188,12 @@ public static function getForgot($email, $inadmin = true)
          }
      }
  }
- public static function validForgotDecrypt($result)
+ public static function validForgotDecrypt($code)
  {
-     $result = base64_decode($result);
-     $code = mb_substr($result, openssl_cipher_iv_length('aes-256-cbc'), null, '8bit');
-     $iv = mb_substr($result, 0, openssl_cipher_iv_length('aes-256-cbc'), '8bit');;
-     $idrecovery = openssl_decrypt($code, 'aes-256-cbc', User::SECRET, 0, $iv);
+     $code = base64_decode($code);
+     $cod = mb_substr($code, openssl_cipher_iv_length('aes-256-cbc'), null, '8bit');
+     $iv = mb_substr($code, 0, openssl_cipher_iv_length('aes-256-cbc'), '8bit');;
+     $idrecovery = openssl_decrypt($cod, 'aes-256-cbc', User::SECRET, 0, $iv);
      $sql = new Sql();
      $results = $sql->select("
          SELECT *
@@ -217,6 +217,26 @@ public static function getForgot($email, $inadmin = true)
      {
          return $results[0];
      }
+ }
+
+ public static function getForgotUsed($idrecovery){
+
+    $sql = new Sql();
+
+    $sql->query("UPDATE tb_userspasswordsrecoveries SET dtrecovery = NOW() WHERE idrecovery = :idrecovery", array(
+        ":idrecovery"=>$idrecovery
+    ));
+
+ }
+
+ public function setPassword($password){
+
+    $sql = new Sql();
+
+    $sql->query("UPDATE tb_users SET td_password = :password WHERE iduser = :iduser ", array(
+        ":password"=>$password,
+        ":iduser"=>$this->getiduser()
+    ));
  }
 
 }

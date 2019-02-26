@@ -7,8 +7,8 @@ use Rain\Tpl;
 class Mailer 
 {
 
-    const USERNAME = "{MEU GMAIL}@gmail.com";
-    const PASSWORD = "MINHA SENHA";
+    const USERNAME = "kaiogluneo@gmail.com";
+    const PASSWORD = "alcara100";
     const NAME_FROM = "Loja do Papai";
 
     private $mail;
@@ -52,9 +52,18 @@ class Mailer
         //$this->mail->Host = gethostbyname('smtp.gmail.com');
         // if your network does not support SMTP over IPv6
         //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-        $this->mail->Port = 465;
+        $this->mail->Port = 587;
+       
+        $this->mail->isSMTP();
+        $this->mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+    );
         //Set the encryption system to use - ssl (deprecated) or tls
-        $this->mail->SMTPSecure = 'ssl';
+        $this->mail->SMTPSecure = 'tls';
         //Whether to use SMTP authentication
         $this->mail->SMTPAuth = true;
         //Username to use for SMTP authentication - use full email address for gmail
@@ -74,7 +83,8 @@ class Mailer
         $this->mail->msgHTML($html);
         //Replace the plain text body with one created manually
         $this->mail->AltBody = 'This is a plain-text message body';
-             
+        
+      
     }
 
       public function send()

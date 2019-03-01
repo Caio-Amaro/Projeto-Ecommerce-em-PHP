@@ -77,7 +77,7 @@ $app->post("/admin/products/:idproduct", function($idproduct){
 
    $product->save();
 
-   $product->setPhoto($_FILE["name"]);
+   $product->setPhoto($_FILE["file"]);
 
    header ("Location: /admin/products");
 

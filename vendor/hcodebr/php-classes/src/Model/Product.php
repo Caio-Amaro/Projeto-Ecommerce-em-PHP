@@ -61,6 +61,16 @@ class Product extends Model {
     }
 
     public function delete()
+{
+        
+        $sql = new Sql();
+        
+        $sql->query("CALL sp_products_delete(:idproduct)", [
+            ':idproduct'=>$this->getidproduct()
+        ]);
+}
+
+    public function delete()
     {
 
         $sql = new Sql();

@@ -78,19 +78,19 @@ class Product extends Model {
     public function checkPhoto()
     {
 
-        if (flie_exists(
-            $_SERVER['DOCUMENT_ROOT']).DIRECTORY_SEPARATOR. "res"
-             . DIRECTORY_SEPARATOR . "site"
-             . DIRECTORY_SEPARATOR . "img"
-             . DIRECTORY_SEPARATOR . "product"
-             . DIRECTORY_SEPARATOR . $this->getidproduct() . ".jpg"
-             ) {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
+            "Res" . DIRECTORY_SEPARATOR . 
+            "site" . DIRECTORY_SEPARATOR . 
+            "img" . DIRECTORY_SEPARATOR . 
+            "products" . DIRECTORY_SEPARATOR . 
+            $this->getidproduct() . ".jpg"
+    )) {
 
-                 $url = "/res/site/img/product/" . $this->getidproduct . ".jpg";
+                 $url = "/res/site/img/products/" . $this->getidproduct() . ".jpg";
              
                 } else {
                     
-                    $url = "/res/site/img/product.jpg" ;
+                    $url = "/res/site/img/products/product.jpg" ;
                 } 
 
                 return $this->setdesphoto($url);

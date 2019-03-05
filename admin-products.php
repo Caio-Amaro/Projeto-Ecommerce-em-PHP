@@ -52,6 +52,7 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 
     User::verifyLogin();
 
+    
     $product = new Product();
 
     $product->get((int)$idproduct);
@@ -60,7 +61,7 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 
     $page->setTpl("products-update", [
 
-        'product'=>$product->getValues()
+        "product"=>$product->getValues()
     ]);
 
 });

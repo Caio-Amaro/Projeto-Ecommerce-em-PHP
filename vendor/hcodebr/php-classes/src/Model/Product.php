@@ -112,7 +112,7 @@ class Product extends Model {
     public function setPhoto($file)
     {
         $extension = explode(".", $file['name']);
-       $extension = end($extension);
+        $extension = end($extension);
 
     switch ($extension) {
         case 'jpg':
@@ -135,11 +135,17 @@ class Product extends Model {
             break;
     }
 
-    $dest = ($_SERVER['DOCUMENT_ROOT']).DIRECTORY_SEPARATOR. "res"
+    $dist = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR. "Res"
              . DIRECTORY_SEPARATOR . "site"
              . DIRECTORY_SEPARATOR . "img"
-             . DIRECTORY_SEPARATOR . "product"
+             . DIRECTORY_SEPARATOR . "products"
              . DIRECTORY_SEPARATOR . $this->getidproduct() . ".jpg";
+    
+    imagejpeg($image, $dist);
+
+    imagedestroy($image);
+
+    $this->checkphoto();
              
 
 }

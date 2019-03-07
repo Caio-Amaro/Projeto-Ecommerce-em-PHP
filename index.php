@@ -22,6 +22,8 @@ require_once("admin-category.php");
 
 require_once("admin-products.php");
 
+require_once("functions.php");
+
 
 $app->run();
 

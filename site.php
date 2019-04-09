@@ -66,7 +66,7 @@ $app->get("/products/:desurl", function($desurl){
 
 });
 
-$app->get("/cart/", function(){
+$app->get("/cart", function(){
 
 	$cart = Cart::getFromSession();
 

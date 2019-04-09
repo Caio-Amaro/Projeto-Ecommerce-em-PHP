@@ -55,7 +55,7 @@ class Cart extends Model {
 
     }
 
-    public function getToSession()
+    public function setToSession()
     {
 
         $_SESSION[Cart::SESSION] = $this->getValues();
@@ -86,7 +86,7 @@ class Cart extends Model {
 
         $sql = new Sql();
 
-        $resuts = $sql->select("SELECT * FROM tb_carts WHERE idcart = :idcart", [
+        $results = $sql->select("SELECT * FROM tb_carts WHERE idcart = :idcart", [
 
             ":idcart" => $idcart
         ]);
@@ -142,7 +142,7 @@ public function removeProduct(Product $product, $all = false)
     {   
 
         $sql->query("UPDATE td_cartsproducts SET dtremoved = NOW() WHERE idcart = :idcart AND idproduct = :idproduct
-         AND dtremoved IS NULL",[
+         AND dtremoved IS NULL", [
         ':idcart'=>getidcart(),
         'idproduct'=>$product->getidproduct()
         ]);
@@ -150,7 +150,7 @@ public function removeProduct(Product $product, $all = false)
     } else {
 
          $sql->query("UPDATE td_cartsproducts SET dtremoved = NOW() WHERE idcart = :idcart AND idproduct = :idproduct
-         AND dtremoved IS NULL LIMIT 1" ,[
+         AND dtremoved IS NULL LIMIT 1", [
         ':idcart'=>getidcart(),
         'idproduct'=>$product->getidproduct()
         ]);
@@ -164,7 +164,7 @@ public function getProducts()
 
     $sql = new Sql();
 
-    $rows = $sql->select("SELECT Y b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl,
+    $rows = $sql->select("SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl,
     COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
     FROM tb_cartsproducts a INNER JOIN tb_products b ON a.idproduct = b.idproduct
     WHERE a.idcart = :idcart AND a.dtremoved IS NULL 
